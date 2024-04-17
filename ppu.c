@@ -1,4 +1,5 @@
 #include "ppu.h"
+#include "cpu.h"
 #include <stdio.h>
 #include <memory.h>
 #include <SDL3/SDL.h>
@@ -110,7 +111,7 @@ void ppu_exec(void)
             ppu.stats.r7 = 1;
             if(ppu.ctrl.r7){
                 // generate NMI
-                //interrupt(&ppu.emulator->cpu, NMI);
+                cpu.NMI = true;
                 printf("NMI\n");
             }
         }
